@@ -32,6 +32,11 @@ namespace MonoGame.Tests.Framework
             get { throw new NotImplementedException(); }
         }
 
+        public override IntPtr HWND
+        {
+            get { throw new NotImplementedException(); }
+        }
+
         public override string ScreenDeviceName
         {
             get { throw new NotImplementedException(); }

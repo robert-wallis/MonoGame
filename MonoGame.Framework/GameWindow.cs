@@ -157,8 +157,24 @@ namespace Microsoft.Xna.Framework {
 		}
 #endif
 
-		protected internal abstract void SetSupportedOrientations (DisplayOrientation orientations);
+        protected internal abstract void SetSupportedOrientations (DisplayOrientation orientations);
 		protected abstract void SetTitle (string title);
+#if DESKTOPGL
+	    /// <summary>
+	    /// Maximized the window, but doesn't make it full screen.
+	    /// </summary>
+	    public abstract void Maximize();
+
+	    /// <summary>
+	    /// Minimizes the window, but does not close it.
+	    /// </summary>
+	    public abstract void Minimize();
+
+	    /// <summary>
+	    /// Restores the window from a minimized state.
+	    /// </summary>
+	    public abstract void Restore();
+#endif
 
 #if DIRECTX && WINDOWS
         public static GameWindow Create(Game game, int width, int height)

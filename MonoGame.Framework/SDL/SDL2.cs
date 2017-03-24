@@ -296,8 +296,7 @@ internal static class Sdl
         [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_DestroyWindow")]
         public static extern void Destroy(IntPtr window);
 
-        [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetWindowDisplayIndex")
-        ]
+        [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetWindowDisplayIndex")]
         private static extern int SDL_GetWindowDisplayIndex(IntPtr window);
 
         public static int GetDisplayIndex(IntPtr window)
@@ -342,6 +341,16 @@ internal static class Sdl
 
         [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_ShowWindow")]
         public static extern void Show(IntPtr window);
+
+        [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_MaximizeWindow")]
+        public static extern void MaximizeWindow(IntPtr window);
+
+        [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_MinimizeWindow")]
+        public static extern void MinimizeWindow(IntPtr window);
+
+        [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_RestoreWindow")]
+        public static extern void RestoreWindow(IntPtr window);
+
     }
 
     public static class Display

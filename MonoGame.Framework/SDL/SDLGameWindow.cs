@@ -284,6 +284,21 @@ namespace Microsoft.Xna.Framework
             OnClientSizeChanged();
         }
 
+        public override void Maximize()
+        {
+            Sdl.Window.MaximizeWindow(_handle);
+        }
+
+        public override void Minimize()
+        {
+            Sdl.Window.MinimizeWindow(_handle);
+        }
+
+        public override void Restore()
+        {
+            Sdl.Window.RestoreWindow(_handle);
+        }
+
         public void CallTextInput(char c, Keys key = Keys.None)
         {
             OnTextInput(this, new TextInputEventArgs(c, key));

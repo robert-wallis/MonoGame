@@ -307,6 +307,19 @@ internal static class Sdl
         [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetWindowFlags")]
         public static extern int GetWindowFlags(IntPtr window);
 
+#if WINDOWS
+        [StructLayout(LayoutKind.Sequential)]
+        public struct WindowsInfo
+        {
+            private Int32 Version;
+            public IntPtr HWND;
+            private IntPtr HDC; // (>= SDL 2.0.4)
+            private IntPtr HInstance; // (>= SDL 2.0.6)
+        }
+        [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_GetWindowWMInfo")]
+        public static extern bool GetWindowWMInfo(IntPtr window, out WindowsInfo info);
+#endif
+
         [DllImport(NativeLibName, CallingConvention = CallingConvention.Cdecl, EntryPoint = "SDL_SetWindowIcon")]
         public static extern void SetIcon(IntPtr window, IntPtr icon);
 

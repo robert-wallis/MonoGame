@@ -64,6 +64,19 @@ namespace Microsoft.Xna.Framework
             get { return _handle; }
         }
 
+#if WINDOWS
+        public override IntPtr HWND
+        {
+            get {
+                Sdl.Window.WindowsInfo wi;
+                if (!Sdl.Window.GetWindowWMInfo(_handle, out wi)) {
+                    return IntPtr.Zero;
+                }
+                return wi.HWND;
+            }
+        }
+#endif
+
         public override string ScreenDeviceName
         {
             get { return _screenDeviceName; }

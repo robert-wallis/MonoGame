@@ -35,7 +35,11 @@ namespace Microsoft.Xna.Framework {
 
 		public abstract IntPtr Handle { get; }
 
-		public abstract string ScreenDeviceName { get; }
+#if WINDOWS && DESKTOPGL
+        public abstract IntPtr HWND { get; }
+#endif
+
+        public abstract string ScreenDeviceName { get; }
 
 		private string _title;
         /// <summary>
